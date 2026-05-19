@@ -1,5 +1,5 @@
-[functions]
-  timeout = 26
-
 [build]
   publish = "."
+
+[functions]
+  directory = "netlify/functions"
