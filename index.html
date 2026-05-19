@@ -448,6 +448,8 @@ Responda SOMENTE com JSON válido, sem markdown, sem texto extra:
     } catch(parseErr) {
       throw new Error('Resposta inválida da função: ' + rawText.substring(0, 200));
     }
+    if (data.error) throw new Error('Erro da API: ' + JSON.stringify(data.error));
+    if (!data.content) throw new Error('Resposta sem content: ' + JSON.stringify(data).substring(0, 200));
     const text = data.content.map(i => i.text || '').join('').replace(/```json|```/g, '').trim();
     const result = JSON.parse(text);
     lastFit = result.fit;
