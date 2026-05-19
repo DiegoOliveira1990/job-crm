@@ -1,2 +1,5 @@
 [functions]
   timeout = 26
+
+[build]
+  publish = "."
